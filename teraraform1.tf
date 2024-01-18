@@ -1,0 +1,23 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.32.1"
+    }
+  }
+}
+
+provider "aws" {
+access_key = "AKIAXYKJXAKRKANC2R7J"
+secret_key = "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"
+region = "us-east-1"
+}
+
+resource "aws_vpc" "main" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "main"
+  }
+}
